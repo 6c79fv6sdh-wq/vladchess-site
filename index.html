@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="index, follow">
+
+<title>Владислав Дмитровский — шахматный тренер. Метод ScienceChess, очно в Москве и онлайн</title>
+<meta name="description" content="Профессиональный шахматный тренер. Шахматы как тренировка мышления, а не кружок по запоминанию ходов. Очно в северной Москве и онлайн, занятия на английском.">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Владислав Дмитровский — шахматный тренер. Метод ScienceChess, очно в Москве и онлайн">
+<meta property="og:description" content="Профессиональный шахматный тренер. Шахматы как тренировка мышления, а не кружок по запоминанию ходов. Очно в северной Москве и онлайн, занятия на английском.">
+
+<!-- ДОМЕН: единственное место для подстановки после публикации.
+     Раскомментируйте три строки и замените ВАШ-ДОМЕН.RU на настоящий адрес без слэша на конце.
+     Canonical и og-теги должны быть статичными в HTML — часть поисковых роботов
+     и превью-краулеров (включая некоторые мессенджеры) не выполняет JavaScript.
+<link rel="canonical" href="https://ВАШ-ДОМЕН.RU/">
+<meta property="og:url" content="https://ВАШ-ДОМЕН.RU/">
+<meta property="og:image" content="https://ВАШ-ДОМЕН.RU/images/og.jpg">
+-->
+
+<!-- АНАЛИТИКА: сюда вставляется готовый код выбранного сервиса
+     (например Google Analytics 4 / gtag.js, Plausible или Umami — что решите использовать).
+     Ничего вставлять не обязательно: сайт работает и без счетчика. Как только сниппет
+     появится здесь, события из <script> внизу страницы (см. раздел АНАЛИТИКА) начнут
+     доходить до него сами — их код менять не нужно. Свой Measurement ID/токен
+     мы не придумываем, его нужно взять в личном кабинете выбранного сервиса. -->
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101418'/%3E%3Crect x='6' y='6' width='10' height='10' fill='%23c9a86c'/%3E%3Crect x='16' y='16' width='10' height='10' fill='%23c9a86c'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Playfair+Display:wght@500&amp;display=swap" rel="stylesheet">
+
+<style>
+/* ==== Палитра и размеры. Для смены оформления правится только этот блок ==== */
+:root{
+  --ink:#101418;                    /* темные секции: первый экран и контакты */
+  --ink-soft:#20272f;
+  --paper:#faf9f7;                  /* основной светлый фон */
+  --text:#1b2128;
+  --muted:#5b6570;
+  --line:#e4e0d9;                   /* волосяные линии на светлом */
+  --line-dark:rgba(255,255,255,.16);
+  --muted-dark:rgba(255,255,255,.68);
+  --accent:#7d5f31;                 /* сдержанная латунь, только мелкие акценты */
+  --accent-light:#c9a86c;           /* та же латунь для темного фона */
+  --wrap:1080px;
+  --sp:clamp(64px,8.5vw,116px);     /* вертикальные отступы секций */
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--text);
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  overflow-wrap:break-word;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2{
+  font-family:"Playfair Display",Georgia,"Times New Roman",serif;
+  font-weight:500;line-height:1.14;letter-spacing:-.015em;margin:0;
+}
+h1{font-size:clamp(35px,5.8vw,58px)}
+h2{font-size:clamp(26px,3.8vw,40px)}
+h3{font-size:12px;font-weight:500;margin:0;letter-spacing:.16em;text-transform:uppercase}
+p{margin:0 0 20px}
+p:last-child{margin-bottom:0}
+a{color:inherit}
+::selection{background:var(--accent);color:#fff}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.section,.contacts{scroll-margin-top:16px}
+.section{padding:var(--sp) 0}
+/* якорь должен всплывать ниже sticky-шапки на всех ширинах, где она sticky (с 760px) */
+@media(min-width:760px){.section,.contacts{scroll-margin-top:92px}}
+.section + .section{border-top:1px solid var(--line)}
+.prose{max-width:62ch}
+
+/* Номер секции над заголовком */
+.eyebrow{
+  display:flex;align-items:center;gap:14px;
+  font-size:12px;letter-spacing:.18em;color:var(--accent);
+  margin:0 0 16px;
+}
+.eyebrow::after{content:"";width:34px;height:1px;background:currentColor}
+.sec-head{margin-bottom:38px}
+
+/* Фокус виден на всех интерактивных элементах */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;
+}
+.on-dark a:focus-visible,.on-dark button:focus-visible,
+.on-dark input:focus-visible,.on-dark textarea:focus-visible{outline-color:var(--accent-light)}
+
+/* ==== Кнопки. Высота не меньше 44px ==== */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:52px;padding:14px 30px;
+  border:1px solid var(--ink);border-radius:2px;
+  background:var(--ink);color:var(--paper);
+  font:inherit;font-weight:500;letter-spacing:.01em;
+  text-decoration:none;cursor:pointer;
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.btn-sm{min-height:46px;padding:10px 20px;font-size:15px}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--ink)}
+/* Те же кнопки на темном фоне */
+.on-dark .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.on-dark .btn-line{background:transparent;color:var(--paper);border-color:var(--line-dark)}
+
+/* ==== Шапка ====
+   Полное меню появляется только с 900px: на меньшей ширине оно не влезает
+   в одну строку рядом с именем и кнопкой. До 760px шапка совсем компактная */
+.site-header{background:var(--ink);color:var(--paper)}
+.header-in{
+  display:flex;align-items:center;gap:12px 28px;flex-wrap:nowrap;
+  padding:12px 0;min-height:56px;
+}
+.brand{display:flex;align-items:baseline;margin-right:auto;min-width:0}
+.brand-top{display:flex;align-items:baseline;gap:clamp(10px,2.6vw,16px)}
+.brand-name{font-family:"Playfair Display",serif;font-size:clamp(17px,4.4vw,20px);letter-spacing:.01em;white-space:nowrap}
+/* название системы стоит рядом с именем и отделено волосяной линией */
+.brand-system{
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:clamp(12px,3vw,14px);letter-spacing:.03em;color:var(--accent-light);
+  white-space:nowrap;padding-left:clamp(9px,2.4vw,14px);
+  border-left:1px solid rgba(255,255,255,.22);
+}
+.nav{display:none}
+.header-cta{display:none}
+@media(min-width:760px){
+  .site-header{position:sticky;top:0;z-index:20}
+  .header-in{padding:14px 0}
+  .header-cta{display:inline-flex}
+}
+@media(min-width:940px){
+  .nav{display:flex;gap:2px 26px;flex-wrap:nowrap}
+}
+.nav a{
+  display:inline-flex;align-items:center;min-height:44px;white-space:nowrap;
+  color:var(--muted-dark);text-decoration:none;font-size:14px;
+  transition:color .18s ease;
+}
+
+/* ==== Первый экран ==== */
+.hero{position:relative;overflow:hidden;background:var(--ink);color:var(--paper);padding:clamp(62px,10vw,124px) 0 0}
+.hero > .wrap{position:relative;z-index:2}
+/* Фотография на первом экране: файл меняется в .hero-photo */
+.hero-photo{
+  position:absolute;top:0;right:0;bottom:0;left:34%;z-index:0;pointer-events:none;
+  background:url("images/vladislav.jpg") no-repeat 46% 22%/cover;
+  filter:grayscale(.35) contrast(1.05) brightness(1.06);
+  /* левый край растворяется, чтобы фото не читалось как вставленный прямоугольник */
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.45) 26%,#000 58%);
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.45) 26%,#000 58%);
+}
+/* Затемнение, чтобы текст оставался читаемым поверх фото */
+.hero-scrim{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(180deg,transparent 52%,rgba(16,20,24,.55) 76%,rgba(16,20,24,.92) 100%),
+    linear-gradient(90deg,var(--ink) 0%,rgba(16,20,24,.96) 30%,rgba(16,20,24,.78) 44%,rgba(16,20,24,.4) 64%,rgba(16,20,24,.18) 100%);
+}
+@media(max-width:759px){
+  /* на телефоне фото занимает полосу сверху и растворяется вниз, текст под ним */
+  .hero{padding-top:clamp(272px,70vw,360px)}
+  .hero-photo{
+    left:0;bottom:auto;height:clamp(276px,72vw,368px);
+    /* кадр плотнее, чтобы лицо не терялось на маленьком экране */
+    background-position:46% 46%;
+    background-size:150% auto;
+    filter:grayscale(.3) contrast(1.04) brightness(1.12);
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.9) 52%,transparent 100%);
+    mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.9) 52%,transparent 100%);
+  }
+  .hero-scrim{
+    bottom:auto;height:clamp(276px,72vw,368px);
+    background:linear-gradient(180deg,rgba(16,20,24,.28) 0%,rgba(16,20,24,.5) 55%,rgba(16,20,24,.9) 88%,var(--ink) 100%);
+  }
+}
+.hero-eyebrow{
+  margin:0 0 18px;font-size:clamp(11px,2.6vw,12px);letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent-light);
+}
+/* на низких экранах фотография занимает меньше места, чтобы текст начинался раньше */
+@media(max-width:759px) and (max-height:720px){
+  .hero{padding-top:clamp(200px,52vw,268px)}
+  .hero-photo,.hero-scrim{height:clamp(204px,54vw,272px)}
+}
+.hero h1{max-width:19ch}
+.hero-sub{margin-top:26px;max-width:52ch;font-size:clamp(17px,2vw,20px);color:var(--muted-dark)}
+.hero-cta{margin-top:38px}
+/* Полоса фактов внизу первого экрана */
+.facts{
+  list-style:none;margin:clamp(48px,7vw,86px) 0 0;padding:0;
+  display:grid;grid-template-columns:1fr;
+  border-top:1px solid var(--line-dark);
+}
+@media(min-width:760px){.facts{grid-template-columns:repeat(3,1fr)}}
+.facts li{
+  padding:20px 0;font-size:13px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted-dark);border-bottom:1px solid var(--line-dark);
+}
+@media(min-width:760px){
+  .facts li{padding:28px 30px;border-bottom:0;border-left:1px solid var(--line-dark)}
+  .facts li:first-child{padding-left:0;border-left:0}
+}
+
+/* ==== Текстовые акценты ==== */
+.lead{font-size:clamp(19px,2.1vw,22px);line-height:1.5;max-width:55ch;margin-bottom:30px}
+.pull{
+  margin:clamp(38px,5vw,58px) 0 0;
+  font-family:"Playfair Display",serif;font-weight:500;
+  font-size:clamp(23px,3.2vw,32px);line-height:1.26;letter-spacing:-.01em;
+  max-width:26ch;
+}
+.pull::before{content:"";display:block;width:38px;height:1px;background:var(--accent);margin-bottom:26px}
+
+/* ==== Две колонки ==== */
+.cols{display:grid;gap:clamp(30px,4vw,56px);grid-template-columns:1fr}
+@media(min-width:820px){.cols{grid-template-columns:1fr 1fr}}
+.col-title{color:var(--accent);margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+
+/* ==== Демонстрация: задача и тренажер ==== */
+.demo{
+  display:grid;gap:1px;grid-template-columns:1fr;
+  background:var(--line);border:1px solid var(--line);
+  margin-top:clamp(44px,6vw,72px);
+}
+.demo-card{
+  background:var(--paper);padding:clamp(24px,3vw,34px);
+  display:grid;gap:clamp(20px,3vw,36px);grid-template-columns:1fr;
+}
+@media(min-width:820px){
+  /* задача: доска слева, вопрос справа. тренажер: снимок крупнее текста */
+  .demo-card--task{grid-template-columns:minmax(240px,330px) 1fr;align-items:start}
+  .demo-card--tool{grid-template-columns:1fr minmax(230px,300px);align-items:center}
+}
+.demo-body{display:flex;flex-direction:column;gap:14px}
+.demo-card h3{
+  font-family:"Playfair Display",Georgia,serif;font-size:clamp(20px,2.2vw,24px);font-weight:500;
+  line-height:1.25;letter-spacing:-.01em;text-transform:none;color:var(--text);
+}
+.demo-intro{margin:0;color:var(--muted);font-size:16px}
+.demo-q{margin:4px 0 0;font-weight:500}
+.demo-opts{display:flex;flex-wrap:wrap;gap:10px}
+.demo-btn{
+  min-height:44px;padding:9px 18px;
+  border:1px solid var(--line);border-radius:2px;background:transparent;
+  font:inherit;font-size:15px;color:var(--text);cursor:pointer;
+  transition:border-color .18s ease,background .18s ease;
+}
+.demo-btn[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.demo-out{margin:0;min-height:3em;color:var(--text)}
+.demo-out:empty{min-height:0}
+
+/* Доска в расцветке тренажера */
+.board-wrap{position:relative;width:100%;max-width:340px}
+.board-img{display:block;width:100%;height:auto;border:1px solid rgba(43,33,25,.18)}
+.arrows{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+/* Стрелки, показываются после ответа */
+.arrow{opacity:0;transition:opacity .3s ease}
+.arrow.on{opacity:1}
+@media (prefers-reduced-motion:reduce){.arrow{transition:none}}
+
+.mid-cta{margin:clamp(36px,5vw,52px) 0 0}
+
+/* ==== Кому подходит: четыре сценария ==== */
+.cases{
+  display:grid;gap:1px;grid-template-columns:1fr;
+  background:var(--line);border:1px solid var(--line);margin-top:clamp(30px,4vw,44px);
+}
+@media(min-width:720px){.cases{grid-template-columns:1fr 1fr}}
+.case{background:var(--paper);padding:clamp(24px,3vw,34px);display:flex;flex-direction:column;gap:12px}
+.case h3{
+  font-family:"Playfair Display",Georgia,serif;font-size:clamp(19px,2.1vw,23px);font-weight:500;
+  line-height:1.25;letter-spacing:-.01em;text-transform:none;color:var(--text);
+}
+.case p{margin:0;color:var(--muted)}
+.cases-note{margin-top:clamp(28px,3.5vw,40px);max-width:62ch}
+
+/* ==== О себе: сначала четыре главных факта, потом биография мелким ==== */
+.creds{
+  list-style:none;margin:0;padding:0;
+  display:grid;gap:1px;grid-template-columns:1fr;
+  background:var(--line);border:1px solid var(--line);
+}
+@media(min-width:560px){.creds{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.creds{grid-template-columns:repeat(4,1fr)}}
+.creds li{background:var(--paper);padding:clamp(20px,2.6vw,28px);display:flex;flex-direction:column;gap:8px}
+.creds-value{
+  font-family:"Playfair Display",Georgia,serif;font-weight:500;
+  font-size:clamp(28px,3.6vw,38px);line-height:1.05;letter-spacing:-.02em;
+}
+.creds-value.is-word{font-size:clamp(21px,2.4vw,26px);letter-spacing:-.01em}
+/* «Lichess» рядом с рейтингом: набрана обычным шрифтом мельче цифр,
+   поэтому размер задан в em относительно родителя — масштабируется вместе с числом */
+.creds-platform{
+  display:inline-flex;align-items:center;gap:.24em;
+  font-family:"Inter",sans-serif;font-weight:500;
+  font-size:.36em;letter-spacing:.01em;color:var(--accent);
+  vertical-align:.4em;margin-left:.3em;
+}
+.creds-mark{width:1em;height:1em}
+.creds-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.about-more{margin-top:clamp(30px,4vw,44px);max-width:64ch;color:var(--muted)}
+.about-more p{margin:0 0 12px}
+.about-more p:last-child{margin-bottom:0}
+
+/* ==== Отзывы ==== */
+.cards{display:grid;gap:1px;grid-template-columns:1fr;background:var(--line);border:1px solid var(--line)}
+@media(min-width:820px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{
+  background:var(--paper);margin:0;padding:clamp(20px,2.4vw,26px);
+  display:flex;flex-direction:column;gap:18px;
+}
+/* Скриншот отзыва, по клику открывается крупнее */
+.shot{
+  display:block;width:100%;padding:0;margin:0;border:1px solid var(--line);
+  background:none;cursor:zoom-in;border-radius:2px;overflow:hidden;
+  transition:border-color .18s ease;
+}
+.shot img{display:block;width:100%;height:auto}
+.card figcaption{margin-top:auto;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* Просмотр скриншота во весь экран */
+.lightbox{
+  border:0;padding:0;background:transparent;
+  max-width:100vw;max-height:100vh;max-height:100dvh;
+  width:100%;height:100%;overflow:auto;
+}
+.lightbox::backdrop{background:rgba(16,20,24,.97)}
+.lightbox-in{min-height:100%;display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px)}
+.lightbox img{max-width:min(940px,100%);width:100%;height:auto;border-radius:2px}
+.lightbox-close{
+  position:fixed;
+  top:calc(12px + env(safe-area-inset-top,0px));
+  right:calc(12px + env(safe-area-inset-right,0px));
+  min-height:44px;min-width:44px;padding:10px 18px;
+  border:1px solid rgba(255,255,255,.4);border-radius:2px;
+  background:rgba(16,20,24,.7);color:var(--paper);font:inherit;font-size:15px;cursor:pointer;
+}
+.lightbox-close:focus-visible{outline:2px solid var(--accent-light);outline-offset:3px}
+
+/* ==== Контакты ==== */
+.contacts{background:var(--ink);color:var(--paper);padding:var(--sp) 0}
+.contacts .eyebrow{color:var(--accent-light)}
+.contacts-grid{display:grid;gap:clamp(32px,5vw,72px);grid-template-columns:1fr;align-items:start}
+@media(min-width:760px){.contacts-grid{grid-template-columns:minmax(260px,340px) 1fr}}
+.contact-links{display:flex;flex-direction:column;gap:12px;max-width:420px}
+.contact-links .btn{width:100%}
+/* кнопка SMS имеет смысл только там, где есть телефон */
+.only-touch{display:none}
+@media (hover:none) and (pointer:coarse){.only-touch{display:inline-flex}}
+[hidden]{display:none !important}
+/* Что происходит после заявки */
+.next-step{border-top:1px solid var(--line-dark);padding-top:24px;max-width:52ch}
+.next-step h3{color:var(--accent-light);margin-bottom:10px}
+.next-step p{margin:0;color:var(--muted-dark);font-size:clamp(17px,1.9vw,19px);line-height:1.6}
+
+.site-footer{padding:30px 0;font-size:13px;letter-spacing:.03em;color:var(--muted);border-top:1px solid var(--line)}
+
+/* ==== Нижняя панель на телефоне: кнопка всегда под рукой ==== */
+.mobile-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  display:flex;gap:10px;
+  padding:10px calc(16px + env(safe-area-inset-right,0px))
+          calc(10px + env(safe-area-inset-bottom,0px))
+          calc(16px + env(safe-area-inset-left,0px));
+  background:rgba(250,249,247,.94);border-top:1px solid var(--line);
+  backdrop-filter:blur(10px);
+  transition:transform .28s ease;
+  /* по умолчанию спрятана: пока кнопка на первом экране видна, панель не нужна */
+  transform:translateY(130%);
+}
+.mobile-cta[data-hidden="false"]{transform:translateY(0)}
+.mobile-cta .btn{flex:1;min-width:0}
+@media(min-width:760px){.mobile-cta{display:none}}
+@media(max-width:759px){
+  body{padding-bottom:0;transition:padding-bottom .28s ease}
+  body.has-mobile-cta{padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}
+}
+@media(max-width:759px) and (prefers-reduced-motion:reduce){body{transition:none}}
+
+/* Наведение имеет смысл только для мыши, на тач-устройствах не применяется */
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{background:var(--ink-soft);border-color:var(--ink-soft)}
+  .btn-outline:hover{background:var(--ink);color:var(--paper)}
+  .on-dark .btn:hover{background:#fff;border-color:#fff}
+  .on-dark .btn-line:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.45)}
+  .nav a:hover{color:var(--paper)}
+  .demo-btn:hover{border-color:#cfc8bb;background:rgba(0,0,0,.03)}
+  .shot:hover{border-color:#c9c3b8}
+  .lightbox-close:hover{background:var(--ink)}
+}
+
+/* ==== Появление блоков при скролле ==== */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .mobile-cta{transition:none}
+  html{scroll-behavior:auto}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<!-- Если JS не выполнится, секции с классом .reveal останутся невидимыми
+     (в обычном режиме их проявляет скролл-анимация через JS) -->
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<header class="site-header on-dark">
+  <div class="wrap header-in">
+    <div class="brand">
+      <span class="brand-top">
+        <span class="brand-name">Владислав Дмитровский</span>
+        <span class="brand-system">ScienceChess</span>
+      </span>
+    </div>
+    <nav class="nav" aria-label="Разделы страницы">
+      <a href="#how">Метод</a>
+      <a href="#who">Кому подходит</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#format">Формат</a>
+    </nav>
+    <a class="btn btn-sm header-cta" href="#contacts">Обсудить занятие</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- 1. Первый экран -->
+  <section class="hero on-dark">
+    <div class="hero-photo" aria-hidden="true"></div>
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="hero-eyebrow">Профессиональный шахматный тренер</p>
+      <h1>Шахматы как тренировка мышления, а не кружок по запоминанию ходов</h1>
+      <p class="hero-sub">Ребенок на занятии не пассивный слушатель: он постоянно решает, спорит, проверяет идеи и учится объяснять свои решения.</p>
+      <div class="hero-cta"><a class="btn" id="hero-cta" href="#contacts">Обсудить занятие</a></div>
+      <ul class="facts">
+        <li>Более 2500 проведенных занятий</li>
+        <li>Ученики от 3 до 77 лет</li>
+        <li>Преподаю шахматы на английском</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2. Как я работаю -->
+  <section id="how" class="section reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">01</p>
+        <h2>Как я работаю</h2>
+      </div>
+      <div class="prose">
+        <p class="lead">Сначала я смотрю, как ребенок думает: торопится ли с ответом, замечает ли угрозы, как реагирует на ошибку, может ли удержать задачу до конца.</p>
+        <p>В моих занятиях есть игра, азарт, спор, понятные метафоры, мемы. За счет этого дети не отсиживают час, как обычно, а включаются намного живее, чем на обычном уроке.</p>
+        <p>Мальчики, которые ненавидели думать, но обожали футбол, через футбол разобрали со мной половину позиционной игры, от которой даже у взрослых включается сонный рефлекс.</p>
+        <p>Основной акцент на глубоком понимании происходящего на шахматной доске и интересных упражнениях, прокачивающих логику и креативность.</p>
+      </div>
+      <p class="pull">Концептуально против зубрежки.</p>
+
+      <div class="demo">
+        <!-- Задача. Диаграмма — images/task-board.jpg, стрелки задаются в BOARD_ARROWS -->
+        <div class="demo-card demo-card--task">
+          <div class="board-wrap">
+            <img class="board-img" src="images/task-board.jpg" width="900" height="899" loading="lazy" decoding="async"
+                 alt="Позиция: у белых ферзь a4, ладья d1, слон c1, король g1 и пешки a2, b2, c2, f2, g2, h2. У черных ферзь g6, конь b5, слон c8, король g8 и пешки a7, b7, f7, g7, h7. Ход белых.">
+          </div>
+          <div class="demo-body">
+            <h3>Правило Ласкера</h3>
+            <p class="demo-intro">Эмануил Ласкер, второй чемпион мира: увидел хороший ход — поищи лучше.</p>
+            <p class="demo-q">Белые могут забрать коня. Забираем?</p>
+            <div class="demo-opts">
+              <button class="demo-btn" type="button" data-answer="grab">Забрать коня</button>
+              <button class="demo-btn" type="button" data-answer="look">Поискать ход получше</button>
+            </div>
+            <p class="demo-out" id="demo-out" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <!-- Тренажер -->
+        <div class="demo-card demo-card--tool">
+          <button class="shot" type="button" aria-label="Открыть снимок тренажера крупнее">
+            <img src="images/trainer-1.jpg" width="1400" height="845" loading="lazy" decoding="async"
+                 alt="Экран моего тренажера: на доске подсвечены клетки, поверх нарисована траектория указателя, рядом счетчик повторов и время.">
+          </button>
+          <div class="demo-body">
+            <h3>Инструменты ScienceChess</h3>
+            <p class="demo-intro">Я разрабатываю собственные шахматные тренажеры, которые тренируют внимание, принятие решений и скорость. Использую их на занятиях.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="mid-cta"><a class="btn" id="mid-cta" href="#contacts">Разобрать вместе</a></p>
+    </div>
+  </section>
+
+  <!-- 3. Кому подходит -->
+  <section id="who" class="section reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">02</p>
+        <h2>Кому подходит</h2>
+      </div>
+      <p class="lead">Ко мне часто приводят детей, которым скучно на обычных занятиях и трудно сидеть в роли пассивного слушателя. Некоторые приходят уже уверенными, что шахматы просто не для них, — но после смены формата начинают заниматься с интересом и остаются надолго.</p>
+
+      <div class="cases">
+        <div class="case">
+          <h3>Ребенку скучно на обычных шахматах</h3>
+          <p>Правила знает, но монотонные задания быстро убивают интерес.</p>
+        </div>
+        <div class="case">
+          <h3>Умный, но торопится</h3>
+          <p>Видит идеи, но отвечает раньше, чем успевает проверить решение.</p>
+        </div>
+        <div class="case">
+          <h3>Трудно удерживать внимание</h3>
+          <p>Нужен диалоговый и динамичный формат вместо часа пассивного слушания.</p>
+        </div>
+        <div class="case">
+          <h3>Хочется не только шахматного результата</h3>
+          <p>Родителям важны мышление, самостоятельность и отношение к ошибкам.</p>
+        </div>
+      </div>
+
+      <p class="cases-note">Формат подойдет родителям, которые хотят для ребенка не просто очередной кружок с нейрослопом про разряд за три месяца, а индивидуальную интеллектуальную нагрузку с понятной обратной связью.</p>
+    </div>
+  </section>
+
+  <!-- 4. Отзывы -->
+  <section id="reviews" class="section reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">03</p>
+        <h2>Отзывы</h2>
+      </div>
+      <div class="cards">
+        <figure class="card">
+          <button class="shot" type="button" aria-label="Открыть отзыв крупнее">
+            <img src="images/review-1.jpg" width="1000" height="690" loading="lazy" decoding="async"
+                 alt="Сообщение от Натальи, мамы Толи: Толя сегодня занял 1 место на школьных соревнованиях по шахматам, очень ощутимый результат за 3 месяца занятий. И Толик в восторге, каждый раз с горящими глазами бежит к вам на занятия.">
+          </button>
+          <figcaption>Наталья, мама Толи</figcaption>
+        </figure>
+        <figure class="card">
+          <button class="shot" type="button" aria-label="Открыть отзыв крупнее">
+            <img src="images/review-2.jpg" width="1000" height="658" loading="lazy" decoding="async"
+                 alt="Сообщение от папы Жени: он прям растет на глазах в шахматах, меня вообще выносит на раз-два, хотя я и не игрок. Спасибо вам за результат.">
+          </button>
+          <figcaption>Папа Жени</figcaption>
+        </figure>
+        <figure class="card">
+          <button class="shot" type="button" aria-label="Открыть отзыв крупнее">
+            <img src="images/review-3.jpg" width="1000" height="614" loading="lazy" decoding="async"
+                 alt="Сообщение от бабушки Гоши: Владислав, если у вас есть время и желание заниматься с Герой, то можем обговорить визиты. Георгий от вас в восторге.">
+          </button>
+          <figcaption>Бабушка Гоши</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. О себе -->
+  <section id="about" class="section reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">04</p>
+        <h2>О себе</h2>
+      </div>
+      <ul class="creds">
+        <li>
+          <span class="creds-value">2700<span class="creds-platform"><img class="creds-mark" src="images/lichess.png" width="96" height="96" alt="" decoding="async">Lichess</span></span>
+          <span class="creds-label">рейтинг</span>
+        </li>
+        <li>
+          <span class="creds-value">2500+</span>
+          <span class="creds-label">проведенных занятий</span>
+        </li>
+        <li>
+          <span class="creds-value">3–77</span>
+          <span class="creds-label">возраст учеников</span>
+        </li>
+        <li>
+          <span class="creds-value is-word">ScienceChess</span>
+          <span class="creds-label">автор метода</span>
+        </li>
+      </ul>
+
+      <div class="about-more">
+        <p>Победитель соревнований по ментальной арифметике и математике, участник научных конференций и форумов.</p>
+        <p>Занимался футболом, боксом и вокалом — это помогает подобрать ключи к самым разным детям.</p>
+        <p>Среди учеников — предприниматели, IT-специалисты, модели и профессиональные бойцы. Для своих учеников создал ряд бесплатных материалов.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Формат и география -->
+  <section id="format" class="section reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">05</p>
+        <h2>Формат и география</h2>
+      </div>
+      <div class="cols">
+        <div>
+          <h3 class="col-title">Очно</h3>
+          <p>Очно работаю в северной Москве: Речной вокзал, Беломорская, Ховрино, Водный стадион.</p>
+        </div>
+        <div>
+          <h3 class="col-title">Онлайн</h3>
+          <p>Доступны занятия онлайн: за счет моих разработок, упражнений и ботов они могут быть даже более эффективными.</p>
+        </div>
+      </div>
+      <p class="pull">Провожу занятия и на английском языке.</p>
+    </div>
+  </section>
+
+  <!-- 7. Контакты -->
+  <section id="contacts" class="contacts on-dark">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">06</p>
+        <h2>Контакты</h2>
+      </div>
+      <div class="contacts-grid">
+        <div class="contact-links">
+          <a class="btn" id="link-wa" href="https://wa.me/79017002756" target="_blank" rel="noopener">Написать в WhatsApp</a>
+          <a class="btn btn-line" id="link-tg" href="https://t.me/vLdm56" target="_blank" rel="noopener">Telegram</a>
+          <a class="btn btn-line" id="link-mail" href="#" hidden>Написать на почту</a>
+          <a class="btn btn-line only-touch" id="link-sms" href="sms:+79017002756">Отправить сообщение</a>
+          <a class="btn btn-line" id="link-phone" href="tel:+79017002756">+7 901 700-27-56</a>
+        </div>
+
+        <div class="next-step">
+          <h3>Что дальше</h3>
+          <p>Напишите возраст ученика, примерный уровень и что хотелось бы получить от занятий. Я отвечу и предложу подходящий формат.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    Владислав Дмитровский — профессиональный шахматный тренер, метод ScienceChess
+  </div>
+</footer>
+
+<!-- Просмотр скриншота отзыва во весь экран -->
+<dialog class="lightbox" id="lightbox">
+  <div class="lightbox-in">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <button class="lightbox-close" type="button" id="lightbox-close">Закрыть</button>
+</dialog>
+
+<!-- Нижняя панель, только на телефоне -->
+<div class="mobile-cta" id="mobile-cta">
+  <a class="btn btn-sm" id="link-wa-mobile" href="https://wa.me/79017002756" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn btn-sm btn-outline" id="link-tg-mobile" href="https://t.me/vLdm56" target="_blank" rel="noopener">Telegram</a>
+</div>
+
+<script>
+/* ------------------------------------------------------------------
+   Базовый контент (текст, телефон, Telegram, WhatsApp, «Что дальше»)
+   уже прописан прямо в HTML и работает без JavaScript.
+   Скрипт ниже только ДОБАВЛЯЕТ поведение:
+   — дописывает готовый текст сообщения к WhatsApp/SMS-ссылкам;
+   — показывает кнопку почты, если ниже указан EMAIL;
+   — рисует стрелки на диаграмме и переключает ответы задачи;
+   — открывает lightbox, анимирует появление блоков;
+   — управляет нижней mobile-панелью;
+   — отправляет события в аналитику (см. раздел АНАЛИТИКА в конце).
+   Домен сайта (canonical, og:url, og:image) — статичный комментарий
+   в <head>, см. пометку "ДОМЕН" в начале файла.
+------------------------------------------------------------------- */
+
+const EMAIL          = "";   // почта для кнопки «Написать на почту». Пока пусто — кнопки нет
+
+// Заготовка сообщения. Дописывается к ссылкам WhatsApp/SMS/почты, чтобы
+// человеку не пришлось придумывать первую фразу, а нужные данные пришли сразу
+const MESSAGE_SUBJECT = "Занятия шахматами";
+const MESSAGE_TEXT    = "Здравствуйте! Пишу по поводу занятий шахматами.\n\n"
+                      + "Возраст ученика: \n"
+                      + "Примерный уровень: \n"
+                      + "Что хотелось бы от занятий: ";
+
+// диаграмма лежит в images/task-board.jpg
+// стрелки: откуда, куда, цвет. Первая — заманчивое взятие, вторая — мат
+const BOARD_ARROWS   = [
+  { id: "grab", from: "a4", to: "b5", color: "#3a2b1d" },
+  { id: "best", from: "d1", to: "d8", color: "#5f8f3e" }
+];
+// что показываем после каждого ответа
+const DEMO_ANSWERS = {
+  grab: "Конь достается бесплатно, ход правда хороший. Но по правилу Ласкера хороший ход — это повод поискать лучше, а не повод остановиться.",
+  look: "Ладья идет на d8 — мат. Партия заканчивается сразу, и конь уже не нужен. Это и есть правило Ласкера в работе."
+};
+
+/* WhatsApp и SMS дописываются готовым текстом сообщения — это единственное,
+   ради чего им нужен JS. Базовые href уже рабочие и прописаны в HTML:
+   если этот блок не выполнится, кнопки все равно открывают чат/приложение,
+   просто без предзаполненного текста */
+(function () {
+  const text = encodeURIComponent(MESSAGE_TEXT);
+  ["link-wa", "link-wa-mobile"].forEach(function (id) {
+    const el = document.getElementById(id);
+    if (el) el.href += "?text=" + text;
+  });
+  const sms = document.getElementById("link-sms");
+  if (sms) sms.href += (sms.href.indexOf("?") > -1 ? "&" : "?") + "body=" + text;
+})();
+
+/* Почта появляется, только если адрес указан — придумывать его нельзя */
+(function () {
+  const el = document.getElementById("link-mail");
+  if (!el) return;
+  if (!EMAIL) { el.remove(); return; }
+  el.href = "mailto:" + EMAIL
+          + "?subject=" + encodeURIComponent(MESSAGE_SUBJECT)
+          + "&body=" + encodeURIComponent(MESSAGE_TEXT);
+  el.hidden = false;
+})();
+
+/* Стрелки поверх готовой диаграммы. Слой лежит в тех же координатах 8x8,
+   что и доска на картинке, поэтому стрелки попадают ровно в клетки */
+(function () {
+  const wrap = document.querySelector(".board-wrap");
+  if (!wrap) return;
+
+  const NS = "http://www.w3.org/2000/svg";
+  const FILES = "abcdefgh";
+
+  function el(name, attrs) {
+    const node = document.createElementNS(NS, name);
+    Object.keys(attrs || {}).forEach(function (k) { node.setAttribute(k, attrs[k]); });
+    return node;
+  }
+  function center(square) {
+    return { x: FILES.indexOf(square[0]) + 0.5, y: 8 - parseInt(square[1], 10) + 0.5 };
+  }
+
+  const svg = el("svg", {
+    class: "arrows", viewBox: "0 0 8 8", preserveAspectRatio: "none",
+    "aria-hidden": "true", focusable: "false"
+  });
+  const defs = el("defs", {});
+  svg.appendChild(defs);
+
+  BOARD_ARROWS.forEach(function (a) {
+    const marker = el("marker", {
+      id: "head-" + a.id, viewBox: "0 0 10 10", refX: 7, refY: 5,
+      markerWidth: 4, markerHeight: 4, orient: "auto-start-reverse"
+    });
+    marker.appendChild(el("path", { d: "M0,1 L10,5 L0,9 z", fill: a.color }));
+    defs.appendChild(marker);
+
+    // хвост отодвинут от центра, чтобы фигура под ним оставалась видна
+    const from = center(a.from), to = center(a.to);
+    const dx = to.x - from.x, dy = to.y - from.y;
+    const len = Math.sqrt(dx * dx + dy * dy) || 1;
+    const line = el("line", {
+      class: "arrow",
+      x1: from.x + (dx / len) * 0.36, y1: from.y + (dy / len) * 0.36,
+      x2: to.x - (dx / len) * 0.12,   y2: to.y - (dy / len) * 0.12,
+      stroke: a.color, "stroke-width": 0.13, "stroke-linecap": "round",
+      "marker-end": "url(#head-" + a.id + ")"
+    });
+    line.dataset.arrow = a.id;
+    svg.appendChild(line);
+  });
+
+  wrap.appendChild(svg);
+})();
+
+/* Ответ на задачу: подсвечивается своя стрелка и появляется объяснение */
+(function () {
+  const buttons = Array.prototype.slice.call(document.querySelectorAll(".demo-btn"));
+  const out = document.getElementById("demo-out");
+  if (!buttons.length || !out) return;
+
+  buttons.forEach(function (btn) {
+    btn.setAttribute("aria-pressed", "false");
+    btn.addEventListener("click", function () {
+      const answer = btn.dataset.answer;
+      buttons.forEach(function (b) {
+        b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+      });
+      out.textContent = DEMO_ANSWERS[answer] || "";
+      // «забрать» показывает только взятие, «поискать» показывает обе стрелки
+      document.querySelectorAll(".arrow").forEach(function (line) {
+        const show = answer === "look" ? true : line.dataset.arrow === "grab";
+        line.classList.toggle("on", show);
+      });
+      track("demo_answer_" + answer);
+    });
+  });
+})();
+
+/* Скриншоты отзывов открываются крупнее. Esc и клик по фону закрывают */
+(function () {
+  const box = document.getElementById("lightbox");
+  const big = document.getElementById("lightbox-img");
+  if (!box || !big || typeof box.showModal !== "function") return;
+
+  document.querySelectorAll("#reviews .shot").forEach(function (btn, i) {
+    btn.addEventListener("click", function () {
+      const img = btn.querySelector("img");
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      box.showModal();
+      track("review_open", { review: "review_" + (i + 1) });
+    });
+  });
+  document.querySelectorAll(".demo-card--tool .shot").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const img = btn.querySelector("img");
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      box.showModal();
+    });
+  });
+
+  document.getElementById("lightbox-close").addEventListener("click", function () { box.close(); });
+  box.addEventListener("click", function (e) {
+    if (e.target === box || e.target.classList.contains("lightbox-in")) box.close();
+  });
+  box.addEventListener("close", function () { big.src = ""; });
+})();
+
+/* Появление блоков при скролле. При prefers-reduced-motion не запускается.
+   Пока JS не выполнился, блоки видны сразу — см. <noscript> в <head>/<body> */
+(function () {
+  const blocks = document.querySelectorAll(".reveal");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduced || !("IntersectionObserver" in window)) {
+    blocks.forEach(function (b) { b.classList.add("is-visible"); });
+    return;
+  }
+  const io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); }
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.04 });
+  blocks.forEach(function (b) { io.observe(b); });
+})();
+
+/* Нижняя панель появляется, только когда кнопка первого экрана ушла с экрана,
+   и снова прячется у блока контактов, чтобы не закрывать форму. Отдельный
+   класс на body включает нижний отступ ТОЛЬКО пока панель реально видна —
+   иначе после того как панель прячется у контактов, под футером оставался
+   бы пустой хвост высотой с панель */
+(function () {
+  const bar = document.getElementById("mobile-cta");
+  const heroCta = document.getElementById("hero-cta");
+  const contacts = document.getElementById("contacts");
+  if (!bar) return;
+
+  function setHidden(hidden) {
+    bar.dataset.hidden = hidden ? "true" : "false";
+    document.body.classList.toggle("has-mobile-cta", !hidden);
+  }
+
+  if (!("IntersectionObserver" in window)) { setHidden(false); return; }
+
+  const visible = { hero: true, contacts: false };
+  function apply() { setHidden(visible.hero || visible.contacts); }
+
+  if (heroCta) {
+    new IntersectionObserver(function (entries) {
+      visible.hero = entries[0].isIntersecting;
+      apply();
+    }, { threshold: 0 }).observe(heroCta);
+  } else {
+    visible.hero = false;
+  }
+
+  if (contacts) {
+    new IntersectionObserver(function (entries) {
+      visible.contacts = entries[0].isIntersecting;
+      apply();
+    }, { threshold: 0.05 }).observe(contacts);
+  }
+
+  apply();
+})();
+
+/* ==== АНАЛИТИКА ====
+   Независимый от провайдера слой событий. Сам по себе ничего никуда не
+   отправляет и не ставит ни одной куки — только складывает события во
+   внутреннюю очередь (window.__scEvents, видно в консоли для отладки)
+   и, если на странице уже загружен счетчик, передает их дальше:
+   — window.gtag       (Google Analytics 4 / Google Tag Manager);
+   — window.plausible   (Plausible);
+   — window.umami.track (Umami).
+   Никакой Measurement ID, ключ или аккаунт здесь не прописаны и не
+   выдуманы. Чтобы данные реально начали собираться, вставьте готовый
+   код выбранного сервиса в <head> (см. пометку "АНАЛИТИКА" в начале
+   файла) — события начнут доходить до него без единой правки здесь.
+   Персональные данные (текст сообщений, телефон, email) в события не
+   попадают: собираются только клики и факт прокрутки. */
+window.__scEvents = window.__scEvents || [];
+
+function track(name, params) {
+  const payload = params || {};
+  window.__scEvents.push({ name: name, params: payload, t: Date.now() });
+  if (typeof window.gtag === "function") window.gtag("event", name, payload);
+  if (typeof window.plausible === "function") window.plausible(name, { props: payload });
+  if (window.umami && typeof window.umami.track === "function") window.umami.track(name, payload);
+}
+
+/* просмотр страницы + источник перехода: реферер и utm-метки из адреса */
+(function () {
+  const params = new URLSearchParams(location.search);
+  const utm = {};
+  ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"].forEach(function (key) {
+    const v = params.get(key);
+    if (v) utm[key] = v;
+  });
+  track("page_view", Object.assign({ path: location.pathname, referrer: document.referrer || "" }, utm));
+})();
+
+/* клики по всем CTA и каналам связи */
+[
+  ["hero-cta", "hero_cta_click"],
+  ["mid-cta", "mid_cta_click"],
+  ["link-wa", "whatsapp_click"],
+  ["link-wa-mobile", "mobile_whatsapp_click"],
+  ["link-tg", "telegram_click"],
+  ["link-tg-mobile", "mobile_telegram_click"],
+  ["link-phone", "phone_click"],
+  ["link-sms", "sms_click"],
+  ["link-mail", "email_click"]
+].forEach(function (pair) {
+  const el = document.getElementById(pair[0]);
+  if (el) el.addEventListener("click", function () { track(pair[1]); });
+});
+document.querySelectorAll(".header-cta").forEach(function (el) {
+  el.addEventListener("click", function () { track("header_cta_click"); });
+});
+
+/* глубина прокрутки: только 4 отметки, не на каждый пиксель */
+(function () {
+  const marks = [25, 50, 75, 90];
+  const fired = new Set();
+  let ticking = false;
+
+  function check() {
+    ticking = false;
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop + window.innerHeight;
+    const percent = Math.min(100, Math.round((scrolled / doc.scrollHeight) * 100));
+    marks.forEach(function (m) {
+      if (percent >= m && !fired.has(m)) {
+        fired.add(m);
+        track("scroll_depth", { percent: m });
+      }
+    });
+    if (fired.size === marks.length) window.removeEventListener("scroll", onScroll);
+  }
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(check);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  check();
+})();
+
+</script>
+
+</body>
+</html>
